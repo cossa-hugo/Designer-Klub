@@ -1,30 +1,37 @@
 {
     "stores": {
         "ambicieux":{
+            "id": 1,
             "name": "Ambicieux",
             "image": "ambicieux.jpg"
         },
         "boulangerie":{
+            "id": 2,
             "name": "Boulangerie",
             "image": "boulangerie.jpg"
         },
         "boucherie":{
+            "id": 3,
             "name": "Boucherie",
             "image": "boucherie.jpg"
         },
         "auchan":{
+            "id": 4,
             "name": "Auchan",
             "image": "auchan.jpg"
         },
         "cactus":{
+            "id": 5,
             "name": "Cactus",
             "image": "cactus.jpg"
         },
         "dior":{
+            "id": 6,
             "name": "Dior",
             "image": "dior.jpg"
         },
         "cora":{
+            "id": 7,
             "name": "Cora",
             "image": "cora.jpg"
         }

@@ -19,13 +19,38 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify);
 
-Vue.use(Vuetify)
+import route from "vue-router";
+import home from "./Home.vue";
+import store from "./Store.vue";
 
+Vue.use(route);
+
+const router = new route({
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: home,
+    },
+    {
+      path: "/store",
+      name: "store",
+      component: store,
+    },
+    {
+      path: "*",
+      redirect: "/",
+    },
+  ],
+});
 
 new Vue({
+  router,
   render: (h) => h(App),
 }).$mount("#app");
