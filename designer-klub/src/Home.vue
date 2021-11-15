@@ -1,7 +1,7 @@
 <template>
   <div>
-    <row container class="container" :gutter="2">
-      <column class="menu" :xs="12" :md="4" :lg="3">
+    <row container class="" :gutter="2">
+      <column class="menu" :xs="12" :md="2" :lg="2">
         DESIGNER<br />KLUB
         <hr />
         MODE<br />
@@ -9,8 +9,8 @@
           {{ store.name }}<br />
         </span>
       </column>
-      <column class="col" :xs="12" :md="4" :lg="9">
-        <row container class="container" :gutter="2">
+      <column class="col" :xs="12" :md="9" :lg="9">
+        <row container class="" :gutter="2">
           <column
             class="col"
             :xs="12"
@@ -21,7 +21,7 @@
           >
             <div class="card">
               <img
-                @click="test(store.id)"
+                @click="displayStore(store.id)"
                 src="./assets/store.jpg"
                 alt="Snow"
                 style="width: 100%"
@@ -46,14 +46,10 @@ export default {
     };
   },
   methods: {
-    test(id) {
+    displayStore(id) {
       this.$router.push({
-        path: "store",
-        params: {
-          id: id,
-        },
+        path: `store/${id}`
       });
-      console.log("test" + id);
     },
   },
 };
@@ -67,10 +63,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.col {
-  /* background-color: red; */
-  /* border: 1px solid #ccc; */
 }
 .container {
   height: 100vh;
@@ -87,5 +79,6 @@ export default {
 .menu {
   border: 1px solid black;
   padding: 10px 30px 10px 30px !important;
+  margin: 0px 20px 0px 10px;
 }
 </style>

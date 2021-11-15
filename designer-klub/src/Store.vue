@@ -1,19 +1,20 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
-    <button @click="increment">Increment</button>
-    <button @click="decrement">Decrement</button>
-    Store {{ id }}
+    <h1>{{ data.name }}</h1>
+    Image: {{ data.image }}<br/>
+    Store id: {{ data.id }}
   </div>
 </template>
 
 <script>
+import json from "./data.json";
+
 export default {
   name: "Store",
   data() {
     return {
       message: "Hello Vue!",
-      id: null,
+      data: null,
     };
   },
   methods: {
@@ -25,8 +26,12 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$route.params.id);
-    this.id = this.$route.params.id;
+    console.log(json.stores);
+    this._.find(json.stores, (item) => {
+      if (item.id == this.$route.params.id) {
+        this.data = item;
+      }
+    });
   },
 };
 </script>

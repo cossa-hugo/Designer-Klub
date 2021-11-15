@@ -9,3 +9,9 @@ export default {
   mounted() {},
 };
 </script>
+<style scoped>
+#app {
+  text-align: center;
+  height: 100vh;
+}
+</style>
