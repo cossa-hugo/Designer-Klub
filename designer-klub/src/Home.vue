@@ -5,11 +5,20 @@
         DESIGNER<br />KLUB
         <hr />
         MODE<br />
-        <span v-for="store in stores" :key="store.id">
+        <span v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
           {{ store.name }}<br />
         </span>
       </column>
       <column class="col" :xs="12" :md="9" :lg="9">
+          <Map
+            style="
+              height: 30%;
+              width: 100%;
+              margin-bottom: 10px;
+              -webkit-filter: grayscale(100%);
+              filter: grayscale(100%);
+            "
+          />
         <row container class="" :gutter="2">
           <column
             class="col"
@@ -37,13 +46,17 @@
 
 <script>
 import json from "./data.json";
+import Map from './components/Map';
 
 export default {
-  name: "App",
+  name: "Home",
   data() {
     return {
       stores: json.stores,
     };
+  },
+  components: {
+    Map,
   },
   methods: {
     displayStore(id) {
