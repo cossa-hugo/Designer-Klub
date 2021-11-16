@@ -72,7 +72,7 @@ export default {
 .map {
   /* position: absolute; */
   /* width: 100%; */
-  /* height: 100%; */
+  /* height: 600px; */
   /* overflow: hidden; */
 }
 </style>

@@ -12,13 +12,18 @@
       <column class="col" :xs="12" :md="9" :lg="9">
           <Map
             style="
-              height: 30%;
+              height: 100%;
               width: 100%;
               margin-bottom: 10px;
               -webkit-filter: grayscale(100%);
               filter: grayscale(100%);
             "
           />
+      </column>
+      <column class="about" :xs="12" :md="2" :lg="2">
+        A propos
+      </column>
+      <column class="col" :xs="12" :md="1" :lg="1">
         <row container class="" :gutter="2">
           <column
             class="col"
@@ -75,7 +80,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 .container {
   height: 100vh;
@@ -90,8 +95,15 @@ export default {
   transform: translate(-50%, -50%);
 }
 .menu {
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 10px 30px 10px 30px !important;
   margin: 0px 20px 0px 10px;
+  height: 70vh;
+}
+.about{
+  border: 3px solid black;
+  padding: 10px 30px 10px 30px !important;
+  margin: 10px 20px 0px 10px;
+  height: 25vh;
 }
 </style>
