@@ -21,10 +21,10 @@
           />
       </column>
       <column class="about" :xs="12" :md="2" :lg="1.5">
-        A PROPOS DE NOUS
+       <div class="centered-about"> A PROPOS DE NOUS</div>
       </column>
-      <column class="col highlight" :xs="12" :md="10" :lg="9.7">
-        <row container class="" :gutter="2">
+      <column class="col" :xs="12" :md="10" :lg="9.7">
+        <row container class="highlight-container" :gutter="2">
           <column
             class="col"
             :xs="12"
@@ -38,7 +38,6 @@
                 @click="displayStore(store.id)"
                 src="./assets/store.jpg"
                 alt="Snow"
-                style="width: 100%"
               />
               <div class="centered">{{ store.name }}</div>
             </div>
@@ -94,6 +93,13 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.centered-about {
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .menu {
   border: 3px solid black;
   padding: 10px 30px 10px 30px !important;
@@ -108,8 +114,12 @@ export default {
   height: 25vh;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.highlight {
+.highlight-container {
     margin: 10px 0px 0px 0px;
+    border: 3px solid black;
     height: 20vh;
+}
+.highlight-container img {
+    height: 25vh;
 }
 </style>
