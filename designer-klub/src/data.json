@@ -14,26 +14,6 @@
             "id": 3,
             "name": "Boucherie",
             "image": "boucherie.jpg"
-        },
-        "4":{
-            "id": 4,
-            "name": "Auchan",
-            "image": "auchan.jpg"
-        },
-        "5":{
-            "id": 5,
-            "name": "Cactus",
-            "image": "cactus.jpg"
-        },
-        "6":{
-            "id": 6,
-            "name": "Dior",
-            "image": "dior.jpg"
-        },
-        "7":{
-            "id": 7,
-            "name": "Cora",
-            "image": "cora.jpg"
         }
     }
 }

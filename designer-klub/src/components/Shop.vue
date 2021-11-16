@@ -23,5 +23,6 @@ export default {
 .shop-icon {
   height: 50px;
   width: auto;
+  color: red;
 }
 </style>

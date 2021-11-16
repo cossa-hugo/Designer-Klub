@@ -1,15 +1,15 @@
 <template>
   <div>
     <row container class="" :gutter="2">
-      <column class="menu" :xs="12" :md="2" :lg="2">
+      <column class="menu" :xs="12" :md="2" :lg="1.5">
         DESIGNER<br />KLUB
-        <hr />
+        <hr />  
         MODE<br />
         <span v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
           {{ store.name }}<br />
         </span>
       </column>
-      <column class="col" :xs="12" :md="9" :lg="9">
+      <column class="col" :xs="12" :md="9" :lg="10">
           <Map
             style="
               height: 100%;
@@ -20,10 +20,10 @@
             "
           />
       </column>
-      <column class="about" :xs="12" :md="2" :lg="2">
-        A propos
+      <column class="about" :xs="12" :md="2" :lg="1.5">
+        A PROPOS DE NOUS
       </column>
-      <column class="col" :xs="12" :md="1" :lg="1">
+      <column class="col highlight" :xs="12" :md="10" :lg="9.7">
         <row container class="" :gutter="2">
           <column
             class="col"
@@ -99,11 +99,17 @@ export default {
   padding: 10px 30px 10px 30px !important;
   margin: 0px 20px 0px 10px;
   height: 70vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .about{
   border: 3px solid black;
-  padding: 10px 30px 10px 30px !important;
+  padding: 50px 30px 10px 30px !important;
   margin: 10px 20px 0px 10px;
   height: 25vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.highlight {
+    margin: 10px 0px 0px 0px;
+    height: 20vh;
 }
 </style>
