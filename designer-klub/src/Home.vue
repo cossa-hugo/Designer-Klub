@@ -1,47 +1,26 @@
 <template>
   <div>
     <row container class="" :gutter="2">
-      <column class="menu" :xs="12" :md="2" :lg="1.5">
+      <column class="menu" :md="2" :lg="1.5">
         DESIGNER<br />KLUB
         <hr />  
-        MODE<br />
-        <span v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
-          {{ store.name }}<br />
+        <span v-for="entry in menu" :key="entry" @click="$router.push({ path: `mode` })">
+         {{ _.capitalize(entry) }}<br />
         </span>
       </column>
-      <column class="col" :xs="12" :md="9" :lg="10">
-          <Map
-            style="
-              height: 100%;
-              width: 100%;
-              margin-bottom: 10px;
-              -webkit-filter: grayscale(100%);
-              filter: grayscale(100%);
-            "
-          />
+      <column :md="9" :lg="10">
+          <Map/>
       </column>
-      <column class="about" :xs="12" :md="2" :lg="1.5">
-       <div class="centered-about"> A PROPOS DE NOUS</div>
+      <column class="about" :md="2" :lg="1.5">
+       <div class="centered"> A PROPOS DE NOUS</div>
       </column>
-      <column class="col" :xs="12" :md="10" :lg="9.7">
-        <row container class="highlight-container" :gutter="2">
-          <column
-            class="col"
-            :xs="12"
-            :md="4"
-            :lg="4"
-            v-for="store in stores"
-            :key="store.id"
-          >
-            <div class="card">
-              <img
-                @click="displayStore(store.id)"
-                src="./assets/store.jpg"
-                alt="Snow"
-              />
-              <div class="centered">{{ store.name }}</div>
-            </div>
-          </column>
+      <column class="highlight" :md="9" :lg="9.7">
+        <row container style="justify-content: space-between;" :gutter="2">
+            <div class="highlight-container" :md="4" :lg="4" v-for="store in highlights" 
+              :key="store.id" @click="displayStore(store.id)">
+              <img src="./assets/store.jpg" alt="Snow" style="height: 25vh" />
+              <div class="centered" style="color: white; font-size: 20px">{{ store.name }}</div>
+          </div>
         </row>
       </column>
     </row>
@@ -56,7 +35,8 @@ export default {
   name: "Home",
   data() {
     return {
-      stores: json.stores,
+      menu: json.menu,
+      highlights: json.highlights,
     };
   },
   components: {
@@ -72,28 +52,8 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
-}
-.container {
-  height: 100vh;
-}
+<style scoped>
 .centered {
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.centered-about {
   font-weight: bold;
   position: absolute;
   top: 50%;
@@ -105,21 +65,22 @@ export default {
   padding: 10px 30px 10px 30px !important;
   margin: 0px 20px 0px 10px;
   height: 70vh;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .about{
   border: 3px solid black;
   padding: 50px 30px 10px 30px !important;
   margin: 10px 20px 0px 10px;
   height: 25vh;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.highlight{
+  overflow: hidden;
+  justify-content: space-between;
+  border: 3px solid black;
+  margin-top: 10px;
+  height: 25vh;
 }
 .highlight-container {
-    margin: 10px 0px 0px 0px;
-    border: 3px solid black;
-    height: 20vh;
-}
-.highlight-container img {
-    height: 25vh;
+  position: relative;
+  text-align: center;
 }
 </style>

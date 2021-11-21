@@ -14,6 +14,7 @@ Vue.prototype._ = _;
 
 import route from "vue-router";
 import home from "./Home.vue";
+import mode from "./Mode.vue";
 import store from "./Store.vue";
 
 Vue.use(route);
@@ -25,6 +26,11 @@ const router = new route({
       path: "/",
       name: "home",
       component: home,
+    },
+    {
+      path: "/mode",
+      name: "mode",
+      component: mode,
     },
     {
       path: "/store/:id",

@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .shop-icon {
   height: 50px;
   width: auto;
