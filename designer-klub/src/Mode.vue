@@ -60,10 +60,10 @@ export default {
   height: 98vh;
 }
 .highlight-container {
-  margin-bottom: 5px;
+  margin: 5px 0px 5px 0px;
   position: relative;
   text-align: center;
-  /* width: 33%; */
+  width: 33%;
 }
 .frame {
   border: 3px solid black;

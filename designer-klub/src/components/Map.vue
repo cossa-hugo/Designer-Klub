@@ -75,6 +75,7 @@ export default {
   /* height: 600px; */
   /* overflow: hidden; */
   /* height: 100%; */
+   border: 3px solid black;
   width: 97% !important;
   margin-bottom: 10px;
   -webkit-filter: grayscale(100%);
