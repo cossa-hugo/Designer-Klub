@@ -9,26 +9,43 @@
          {{ store.name }}<br />
         </span>
       </column>
-      <column class="highlight" :md="9" :lg="9.7">
-        <row container style="justify-content: space-between;" :gutter="2">
-            <div class="highlight-container" :md="4" :lg="4" v-for="store in highlights" 
-              :key="store.id" @click="displayStore(store.id)">
-              <img src="./assets/store.jpg" alt="Snow" style="height: 25vh" />
-              <div class="centered" style="color: white; font-size: 20px">{{ store.name }}</div>
-          </div>
+      <column class="" :md="9" :lg="9.7">
+        <row container style="" :gutter="2">
+          <column class="banner" :xs="12" :md="12" :lg="12">
+            <img src="./assets/store.jpg" alt="Snow" style="height: 100vh" />
+            <div class="centered" style="color: white; font-size: 30px">{{ data.name }}</div>
+          </column>
         </row>
-        <row>
-          <column>
+        <row style="flex-wrap: nowrap;" :gutter="2">
+          <column class="box">
            Identité
           </column>
-           <column>
+           <column class="box">
            Ethique
           </column>
-           <column>
+           <column class="box">
            Contact
           </column>
         </row>
-        <row>
+        <row style="flex-wrap: nowrap;" :gutter="2">
+          <column class="item">
+           <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
+           <column class="item">
+           <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
+           <column class="item">
+          <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
+          <column class="item">
+           <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
+           <column class="item">
+           <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
+           <column class="item">
+          <img src="./assets/store.jpg" alt="Snow" style="width: 24vh" />
+          </column>
         </row>
       </column>
     </row>
@@ -47,7 +64,6 @@ export default {
     };
   },
   mounted() {
-    console.log(json.stores);
     this._.find(json.stores, (item) => {
       if (item.id == this.$route.params.id) {
         this.data = item;
@@ -57,10 +73,23 @@ export default {
   methods: {
     displayStore(id) {
       this.$router.push({
-        path: `store/${id}`
+        path: `/store/${id}`
       });
     },
   },
+  watch: { 
+     '$route.params.id': {
+        handler: function(id) {
+           this._.find(json.stores, (item) => {
+            if (item.id == id) {
+              this.data = item;
+            }
+          });
+        },
+        deep: true,
+        immediate: true
+      }
+}
 };
 </script>
 
@@ -84,15 +113,26 @@ export default {
   margin: 10px 20px 0px 10px;
   height: 25vh;
 }
-.highlight{
-  overflow: hidden;
-  justify-content: space-between;
+.banner{
+  justify-content: center;
   border: 3px solid black;
   margin-top: 10px;
-  height: 25vh;
-}
-.highlight-container {
+  height: 40vh;
+  overflow: hidden;
   position: relative;
   text-align: center;
+  margin: 5px 15px 20px 15px;
+}
+.box {
+  border: 3px solid black;
+  margin: 5px 15px 20px 15px;
+  height: 30vh;
+}
+.item {
+  border: 3px solid black;
+  margin: 15px;
+  height: 19vh;
+  overflow: hidden;
+  /* width: 15vh !important; */
 }
 </style>
