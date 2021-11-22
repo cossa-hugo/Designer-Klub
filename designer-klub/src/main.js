@@ -8,24 +8,13 @@ import { Row, Column } from "vue-grid-responsive";
 Vue.component("row", Row);
 Vue.component("column", Column);
 
-import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
-// Import Bootstrap an BootstrapVue CSS files (order is important)
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin);
-
-import Vuetify from "vuetify";
-import "vuetify/dist/vuetify.min.css";
-
-Vue.use(Vuetify);
+import _ from "lodash"; 
+Vue.prototype._ = _;
 
 import route from "vue-router";
 import home from "./Home.vue";
+import mode from "./Mode.vue";
 import store from "./Store.vue";
 
 Vue.use(route);
@@ -39,7 +28,12 @@ const router = new route({
       component: home,
     },
     {
-      path: "/store",
+      path: "/mode",
+      name: "mode",
+      component: mode,
+    },
+    {
+      path: "/store/:id",
       name: "store",
       component: store,
     },

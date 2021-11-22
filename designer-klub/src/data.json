@@ -1,39 +1,67 @@
 {
-    "stores": {
-        "ambicieux":{
+    "menu": [ "mode" ],
+    "highlights": {
+        "1":{
             "id": 1,
             "name": "Ambicieux",
             "image": "ambicieux.jpg"
         },
-        "boulangerie":{
+        "2":{
             "id": 2,
             "name": "Boulangerie",
             "image": "boulangerie.jpg"
         },
-        "boucherie":{
+        "3":{
+            "id": 3,
+            "name": "Boucherie",
+            "image": "boucherie.jpg"
+        }
+    },
+    "stores": {
+        "1":{
+            "id": 1,
+            "name": "Ambicieux",
+            "image": "ambicieux.jpg"
+        },
+        "2":{
+            "id": 2,
+            "name": "Boulangerie",
+            "image": "boulangerie.jpg"
+        },
+        "3":{
             "id": 3,
             "name": "Boucherie",
             "image": "boucherie.jpg"
         },
-        "auchan":{
+        "4":{
             "id": 4,
-            "name": "Auchan",
-            "image": "auchan.jpg"
+            "name": "Gucci",
+            "image": "gucci.jpg"
         },
-        "cactus":{
+        "5":{
             "id": 5,
-            "name": "Cactus",
-            "image": "cactus.jpg"
+            "name": "L'Oreal",
+            "image": "loreal.jpg"
         },
-        "dior":{
+        "6":{
             "id": 6,
-            "name": "Dior",
-            "image": "dior.jpg"
+            "name": "Nestlé",
+            "image": "nestle.jpg"
         },
-        "cora":{
+        "7":{
             "id": 7,
-            "name": "Cora",
-            "image": "cora.jpg"
-        }
+            "name": "Peluche",
+            "image": "peluche.jpg"
+        },
+        "8":{
+            "id": 8,
+            "name": "Pomme",
+            "image": "pomme.jpg"
+        },
+        "9":{
+            "id": 9,
+            "name": "Sainsbury",
+            "image": "sainsbury.jpg"
+        }        
     }
 }
