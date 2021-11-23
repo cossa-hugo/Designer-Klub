@@ -5,8 +5,8 @@
 </template>
 <script>
 export default {
-  name: "App",
-  mounted() {},
+  name: 'App',
+  components: {},
 };
 </script>
 <style scoped>

@@ -1,4 +1,3 @@
-
 <template>
   <l-map
     :center="center"
@@ -70,15 +69,9 @@ export default {
 
 <style>
 .map {
-  /* position: absolute; */
-  /* width: 100%; */
-  /* height: 600px; */
-  /* overflow: hidden; */
-  /* height: 100%; */
-   border: 3px solid black;
-  width: 97% !important;
-  margin-bottom: 10px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
