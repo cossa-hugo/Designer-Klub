@@ -2,11 +2,18 @@
   <div>
     <row container class="" :gutter="2">
       <column class="menu" :xs="12" :md="2" :lg="1.5">
-        DESIGNER<br />KLUB
+       <span @click="$router.push({ path: `/` })">
+           DESIGNER<br />KLUB
+        </span>
         <hr /> 
-        Mode<br /><br />
-        <span v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
-         {{ store.name }}<br />
+        <span @click="$router.push({ path: `/mode` })">
+          Mode<br /><br />
+        </span>
+       <span v-for="(value, letter) in menuItems" :key="letter">
+          <br />{{ letter }}<br />
+          <span v-for="store in value" :key="store.id" @click="displayStore(store.id)">
+            {{ store.name }}<br />
+          </span>
         </span>
       </column>
       <column class="" :md="9" :lg="9.7">
@@ -63,33 +70,37 @@ export default {
       data: null,
     };
   },
-  mounted() {
-    this._.find(json.stores, (item) => {
-      if (item.id == this.$route.params.id) {
-        this.data = item;
-      }
-    });
-  },
   methods: {
     displayStore(id) {
       this.$router.push({
         path: `/store/${id}`
       });
     },
+    udpateStore(){
+      this._.find(json.stores, (item) => {
+        if (item.id == this.$route.params.id) {
+          this.data = item;
+        }
+      });
+    }
+  },
+  computed: {
+    menuItems() {
+      return this._.reduce(json.stores,function(result,value){
+      (result[value.name[0]]||(result[value.name[0]]=[])).push(value)
+      return result;
+      },{});
+    }
   },
   watch: { 
      '$route.params.id': {
-        handler: function(id) {
-           this._.find(json.stores, (item) => {
-            if (item.id == id) {
-              this.data = item;
-            }
-          });
+        handler: function() {
+          this.udpateStore();
         },
         deep: true,
         immediate: true
       }
-}
+  }
 };
 </script>
 

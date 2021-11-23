@@ -2,7 +2,9 @@
   <div>
     <row container class="" :gutter="2">
       <column class="menu" :md="2" :lg="1.5">
-        DESIGNER<br />KLUB
+       <span @click="$router.push({ path: `/` })">
+           DESIGNER<br />KLUB
+        </span>
         <hr />  
         <span v-for="entry in menu" :key="entry" @click="$router.push({ path: `mode` })">
          {{ _.capitalize(entry) }}<br />
@@ -48,7 +50,7 @@ export default {
         path: `store/${id}`
       });
     },
-  },
+  }
 };
 </script>
 

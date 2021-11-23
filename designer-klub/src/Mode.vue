@@ -2,17 +2,21 @@
   <div>
     <row container class="" :gutter="2">
       <column class="menu" :xs="12" :md="2" :lg="1.5">
-        DESIGNER<br />KLUB
+        <span @click="$router.push({ path: `/` })">
+           DESIGNER<br />KLUB
+        </span>
         <hr /> 
-        MODE<br /><br />
-        <span v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
-         {{ store.name }}<br />
+        Mode<br /><br />
+        <span v-for="(value, letter) in menuItems" :key="letter">
+          <br />{{ letter }}<br />
+          <span v-for="store in value" :key="store.id" @click="displayStore(store.id)">
+            {{ store.name }}<br />
+          </span>
         </span>
       </column>
        <column class="frame" :md="9" :lg="9.7">
         <row container class="" style="justify-content: space-between;" :gutter="2">
-            <div class="highlight-container" :md="4" :lg="4" v-for="store in stores" 
-              :key="store.id" @click="displayStore(store.id)">
+            <div class="highlight-container" :md="4" :lg="4" v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
               <img src="./assets/store.jpg" alt="Snow" />
               <div class="centered" style="color: white; font-size: 20px">{{ store.name }}</div>
           </div>
@@ -29,8 +33,7 @@ export default {
   name: "Mode",
   data() {
     return {
-      menu: json.menu,
-      stores: json.stores,
+      stores: json.stores
     };
   },
   methods: {
@@ -40,6 +43,14 @@ export default {
       });
     },
   },
+  computed: {
+    menuItems() {
+      return this._.reduce(json.stores,function(result,value){
+      (result[value.name[0]]||(result[value.name[0]]=[])).push(value)
+      return result;
+      },{});
+    }
+  }
 };
 </script>
 

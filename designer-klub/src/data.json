@@ -17,51 +17,51 @@
             "image": "boucherie.jpg"
         }
     },
-    "stores": {
-        "1":{
+    "stores": [
+        {
             "id": 1,
             "name": "Ambicieux",
             "image": "ambicieux.jpg"
         },
-        "2":{
+        {
             "id": 2,
             "name": "Boulangerie",
             "image": "boulangerie.jpg"
         },
-        "3":{
+        {
             "id": 3,
             "name": "Boucherie",
             "image": "boucherie.jpg"
         },
-        "4":{
+        {
             "id": 4,
             "name": "Gucci",
             "image": "gucci.jpg"
         },
-        "5":{
+        {
             "id": 5,
             "name": "L'Oreal",
             "image": "loreal.jpg"
         },
-        "6":{
+        {
             "id": 6,
             "name": "Nestlé",
             "image": "nestle.jpg"
         },
-        "7":{
+        {
             "id": 7,
             "name": "Peluche",
             "image": "peluche.jpg"
         },
-        "8":{
+        {
             "id": 8,
             "name": "Pomme",
             "image": "pomme.jpg"
         },
-        "9":{
+        {
             "id": 9,
             "name": "Sainsbury",
             "image": "sainsbury.jpg"
         }        
-    }
+    ]	
 }
