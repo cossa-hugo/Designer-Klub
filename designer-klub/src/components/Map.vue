@@ -69,9 +69,12 @@ export default {
 
 <style>
 .map {
+  border: 3px solid black;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 99.3% !important;
+  height: 99.3% !important;
   overflow: hidden;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 </style>

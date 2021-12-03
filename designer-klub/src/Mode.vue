@@ -29,6 +29,7 @@
 <script>
 import json from "./data.json";
 
+
 export default {
   name: "Mode",
   data() {

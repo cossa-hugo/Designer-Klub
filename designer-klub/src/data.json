@@ -1,5 +1,5 @@
 {
-    "menu": [ "mode" ],
+    "menu": [ "mode", "events", "tattoo", "design", "musique" ],
     "highlights": {
         "1":{
             "id": 1,
