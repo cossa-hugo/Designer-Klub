@@ -1,24 +1,26 @@
 <template>
   <div>
-    <row container class="" :gutter="2">
-      <column class="menu" :xs="12" :md="2" :lg="1.5">
-        <span @click="$router.push({ path: `/` })">
-           DESIGNER<br />KLUB
-        </span>
-        <hr /> 
-        Mode<br /><br />
-        <span v-for="(value, letter) in menuItems" :key="letter">
-          <br />{{ letter }}<br />
-          <span v-for="store in value" :key="store.id" @click="displayStore(store.id)">
-            {{ store.name }}<br />
+    <row container class="page">
+      <column class="col menu" :xs="12" :md="2.2" :lg="2">
+        <p><img src="./assets/logo.png" class="logo" @click="$router.push({ path: `/` })"></p><hr />   
+        
+        <p>
+          Mode<br>  
+
+          <span v-for="(value, letter) in menuItems" :key="letter">
+            <br />{{ letter }}<br />
+            <span v-for="store in value" :key="store.id" @click="displayStore(store.id)">
+              {{ store.name }}<br />
+            </span>
           </span>
-        </span>
+          
+        </p>
       </column>
-       <column class="frame" :md="9" :lg="9.7">
-        <row container class="" style="justify-content: space-between;" :gutter="2">
+       <column class="col frame"  :md="9.8" :lg="9.8">
+        <row container style="justify-content: space-between;" :gutter="2">
             <div class="highlight-container" :md="4" :lg="4" v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
-              <img src="./assets/store.jpg" alt="Snow" />
-              <div class="centered" style="color: white; font-size: 20px">{{ store.name }}</div>
+              <img src="./assets/store.jpg" />
+              <div>{{ store.name }}</div>
           </div>
         </row>
       </column>
@@ -56,36 +58,21 @@ export default {
 </script>
 
 <style scoped>
-.centered {
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .menu {
-  border: 3px solid black;
-  padding: 10px 30px 10px 30px !important;
-  margin: 0px 20px 0px 10px;
   height: 98vh;
 }
-.highlight-container {
-  margin: 5px 0px 5px 0px;
-  position: relative;
-  text-align: center;
-  width: 33%;
+.highlight-container img {
+  border: 2px solid black;
 }
 .frame {
-  border: 3px solid black;
-  height: 98vh;
-
+  /* border: 3px solid black; */
+  /* height: 98vh; */
+/* 
   display: flex;
   flex-wrap: wrap;
 
   align-content: space-between;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 </style>

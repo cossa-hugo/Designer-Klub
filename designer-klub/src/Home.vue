@@ -1,28 +1,28 @@
 <template>
   <div>
     <row container class="page">
-      <column class="col menu" :md="2" :lg="1.5">
-       <p @click="$router.push({ path: `/` })">
-          <img src="./assets/logo.png" style="margin-bottom: 20px;">
+      <column class="col menu" :md="2.2" :lg="2">
+       <p>
+          <img src="./assets/logo.png" class="logo" style="margin-bottom: 20px;"><br/>
            <span><b>DESIGNER</b><br />KLUB</span>
         </p>
         <hr />  
-        <p style="cursor: default" @click="$router.push({ path: 'mode' })">Mode</p>
+        <p style="cursor: default"><a href="#mode">Mode</a></p>
         <p style="cursor: not-allowed; color: lightgrey">Events</p>
         <p style="cursor: not-allowed; color: lightgrey">Tattoo</p>
         <p style="cursor: not-allowed; color: lightgrey">Design</p>
         <p style="cursor: not-allowed; color: lightgrey">Musique</p>
       </column>
-      <column class="col" sytle="overflow: hidden" :md="9" :lg="10">
+      <column class="col" sytle="overflow: hidden" :md="9.8" :lg="9.8">
           <Map/>
       </column>
-      <column class="col about" :md="2" :lg="1.5">
+      <column class="col about" :md="2.2" :lg="2">
         <div>
           <div>LA SELECTION ></div><br/><br/><br/>
           <div>NOTRE<br>PHILOSOPHIE<br>v</div>
         </div>
       </column>
-      <column class="col highlight" :md="9" :lg="10">
+      <column class="col highlight" :md="9.8" :lg="9.8">
         <row container style="justify-content: space-between;" :gutter="2">
             <div class="highlight-container" :md="4" :lg="4" v-for="store in highlights" 
               :key="store.id" @click="displayStore(store.id)">
@@ -32,7 +32,7 @@
         </row>
       </column>
     </row>
-    <!-- <Mode></Mode> -->
+    <Mode id="mode"></Mode>
   </div>
 </template>
 
@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .page {
   justify-content: center;
 }
@@ -78,9 +78,17 @@ export default {
 .menu p {
   font-size: 25px;
 }
+.menu a {
+  text-decoration: none;
+  color: black
+}
+.logo {
+  width: 40%;
+  height: auto;
+}
 .about{
   border: 3px solid black;
-  font-size: 25px;
+  font-size: 20px;
   height: 25vh;
   display: flex;
   justify-content: center;
@@ -91,6 +99,7 @@ export default {
   justify-content: space-between;
   border: 3px solid black;
   height: 25vh;
+  margin-bottom: 25px;
 }
 .highlight-container {
   position: relative;
