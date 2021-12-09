@@ -60,14 +60,15 @@
 </template>
 
 <script>
-import json from "./data.json";
+import { dbRef } from "./firebase";
+import { get, child } from "firebase/database";
 
 export default {
   name: "Store",
   data() {
     return {
-      stores: json.stores,
-      data: null,
+      stores: null,
+      data: "empty",
     };
   },
   methods: {
@@ -77,7 +78,7 @@ export default {
       });
     },
     udpateStore(){
-      this._.find(json.stores, (item) => {
+      this._.find(this.stores, (item) => {
         if (item.id == this.$route.params.id) {
           this.data = item;
         }
@@ -86,7 +87,7 @@ export default {
   },
   computed: {
     menuItems() {
-      return this._.reduce(json.stores,function(result,value){
+      return this._.reduce(this.stores,function(result,value){
       (result[value.name[0]]||(result[value.name[0]]=[])).push(value)
       return result;
       },{});
@@ -98,8 +99,14 @@ export default {
           this.udpateStore();
         },
         deep: true,
-        immediate: true
+        immediate: false
       }
+  },
+  async created(){
+    this.stores = await get(child(dbRef, "stores")).then((snapshot) => {
+      return snapshot.val();
+    });
+    this.udpateStore();
   }
 };
 </script>

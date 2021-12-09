@@ -1,13 +1,12 @@
 import Vue from "vue";
 import App from "./App.vue";
+import "./firebase"
 
 Vue.config.productionTip = false;
 
 import { Row, Column } from "vue-grid-responsive";
-
 Vue.component("row", Row);
 Vue.component("column", Column);
-
 
 import _ from "lodash"; 
 Vue.prototype._ = _;
@@ -43,6 +42,11 @@ const router = new route({
     },
   ],
 });
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 new Vue({
   router,

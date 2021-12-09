@@ -37,16 +37,18 @@
 </template>
 
 <script>
-import json from "./data.json";
 import Map from './components/Map';
 import Mode from "./Mode.vue";
+
+import { dbRef } from "./firebase";
+import { get, child } from "firebase/database";
 
 export default {
   name: "Home",
   data() {
     return {
-      menu: json.menu,
-      highlights: json.highlights,
+      menu: null,
+      highlights: null,
     };
   },
   components: {
@@ -59,6 +61,14 @@ export default {
         path: `store/${id}`
       });
     },
+  },
+  async created(){
+    this.menu = await get(child(dbRef, 'menu')).then((snapshot) => {
+      return snapshot.val();
+    });
+    this.highlights = await get(child(dbRef, "highlights")).then((snapshot) => {
+      return snapshot.val();
+    });
   }
 };
 </script>

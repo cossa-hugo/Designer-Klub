@@ -18,10 +18,10 @@
       </column>
        <column class="col frame"  :md="9.8" :lg="9.8">
         <row container style="justify-content: space-between;" :gutter="2">
-            <div class="highlight-container" :md="4" :lg="4" v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
+            <div class="highlight-container" :md="6" :lg="6" v-for="store in stores" :key="store.id" @click="displayStore(store.id)">
               <img src="./assets/store.jpg" />
               <div>{{ store.name }}</div>
-          </div>
+            </div>
         </row>
       </column>
     </row>
@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import json from "./data.json";
-
+import { dbRef } from "./firebase";
+import { get, child } from "firebase/database";
 
 export default {
   name: "Mode",
   data() {
     return {
-      stores: json.stores
+      stores: null
     };
   },
   methods: {
@@ -48,11 +48,16 @@ export default {
   },
   computed: {
     menuItems() {
-      return this._.reduce(json.stores,function(result,value){
+      return this._.reduce(this.stores,function(result,value){
       (result[value.name[0]]||(result[value.name[0]]=[])).push(value)
       return result;
       },{});
     }
+  },
+  async created(){
+    this.stores = await get(child(dbRef, `stores`)).then((snapshot) => {
+      return snapshot.val();
+    });
   }
 };
 </script>

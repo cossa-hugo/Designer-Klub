@@ -1,22 +1,22 @@
 {
     "menu": [ "mode", "events", "tattoo", "design", "musique" ],
-    "highlights": {
-        "1":{
+    "highlights": [
+        {
             "id": 1,
             "name": "Ambicieux",
             "image": "ambicieux.jpg"
         },
-        "2":{
+        {
             "id": 2,
             "name": "Boulangerie",
             "image": "boulangerie.jpg"
         },
-        "3":{
+        {
             "id": 3,
             "name": "Boucherie",
             "image": "boucherie.jpg"
         }
-    },
+    ],
     "stores": [
         {
             "id": 1,
