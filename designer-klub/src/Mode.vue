@@ -9,7 +9,7 @@
 
           <span v-for="(value, letter) in menuItems" :key="letter">
             <br />{{ letter }}<br />
-            <span v-for="store in value" :key="store.id" @click="displayStore(store.id)">
+            <span v-for="store in value" :key="store.id" @click="displayStore(store.id)" class="entry">
               {{ store.name }}<br />
             </span>
           </span>
@@ -65,6 +65,9 @@ export default {
 <style scoped>
 .menu {
   height: 98vh;
+}
+.menu p {
+  font-size: 20px;
 }
 .highlight-container img {
   border: 2px solid black;
